@@ -1,0 +1,16 @@
+
+    <a routerLink="/" class="hidden md:flex btn w-fit btn-ghost text-xl" role="button" 
+    (click)="setSelectedCat(null)">Mini-Ecommerce</a>
+    <div class="dropdown md:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+        <ng-icon name="ionMenu" size="20"></ng-icon>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      >
+          <li *ngFor="let cat of categories; let i=index">
+            <a routerLink="/" role="button" (click)="setSelectedCat(cat)">{{cat}}</a>
+          </li>
+      </ul>
+    </div>

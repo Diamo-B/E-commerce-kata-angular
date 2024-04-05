@@ -1,0 +1,22 @@
+<footer class="footer px-10 py-5 2xl:py-10 bg-base-200 text-base-content">
+  <aside>
+    <ng-icon name="octHash" size="64"></ng-icon>
+    <p>Mini-Ecommerce Kata Ltd.<br />Providing reliable service since 1992</p>
+  </aside>
+  <nav>
+    <h6 class="footer-title">Categories</h6>
+    <a
+      *ngFor="let cat of categories"
+      role="button"
+      (click)="scrollToTop(); setSelectedCat(cat)"
+      class="link link-hover"
+      >{{ cat }}</a
+    >
+  </nav>
+  <nav>
+    <h6 class="footer-title">Legal</h6>
+    <a class="link link-hover">Terms of use</a>
+    <a class="link link-hover">Privacy policy</a>
+    <a class="link link-hover">Cookie policy</a>
+  </nav>
+</footer>

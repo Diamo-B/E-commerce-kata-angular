@@ -1,0 +1,25 @@
+<div class="w-56 py-5 px-5 border rounded-lg border-neutral flex flex-col gap-2 hover:shadow-xl hover:cursor-pointer" *ngIf="product">
+    <img [src]="product.image" alt="product's image" class="size-40 rounded-lg bg-contain mx-auto" />
+    <div class="flex flex-col gap-1">
+        <h1 class="font-semibold text-center">
+            {{sliceProductTitle(product.title)}}
+        </h1>
+        <p class="text-center text-xs badge badge-accent badge-outline mx-auto">
+            {{product.category}}
+        </p>
+    </div>
+    <div class="flex justify-between items-center w-full px-2">
+        <!-- <Rating productRating={product.rating.rate}/> -->
+        <p class="text-sm font-semibold">({{product.rating.count}})</p>
+    </div>
+    <div class="flex justify-between items-center">
+        <p class="text-center font-bold text-lg">$ {{product.price}}</p>
+        <button class="btn btn-outline btn-primary !min-h-0 h-fit py-1 rounded-full group" >
+            <ng-icon name="ionCart" size="20" class="group-hover:text-white"></ng-icon>
+        </button>
+    </div>
+</div>
+
+
+
+<!-- add to the button (click)="addCartItem(product)" -->

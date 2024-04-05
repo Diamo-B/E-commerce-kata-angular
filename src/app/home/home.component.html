@@ -1,0 +1,27 @@
+<div class="bg-base-100 h-full py-5 px-10 flex flex-col">
+  <div class="flex justify-between items-center">
+    <p class="font-semibold text-lg capitalize">
+      {{ selectedCat || "All Products" }}
+    </p>
+    <button
+      class="btn btn-error btn-outline rounded-full min-h-0 h-fit py-2 px-5 hover:!text-white"
+      [disabled]="!selectedCat"
+      (click)="removeFilter()"
+    >
+      remove filter
+      <ng-icon name="ionRemoveCircleOutline"></ng-icon>
+    </button>
+  </div>
+  <div
+    class="w-full h-full py-5 flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 justify-items-center place-content-center"
+  >
+    <ng-container *ngIf="products.length > 0; else elseBlock">
+      <div *ngFor="let prod of products" class="m-5">
+        <app-product-card [product]="prod"></app-product-card>
+      </div>
+    </ng-container>
+    <ng-template #elseBlock class="flex justify-center items-center col-span-5">
+      <span class="loading loading-spinner loading-lg"></span>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+    <a routerLink="/" class="flex md:hidden btn btn-ghost text-xl" role="button" (click)="setSelectedCat(null)">Mini-Ecommerce</a>
+    <ul class="hidden md:flex menu menu-horizontal px-1">
+        <li *ngFor="let cat of categories; let i=index">
+          <a routerLink="/" role="button" (click)="setSelectedCat(cat)">{{cat}}</a>
+        </li>
+    </ul>
