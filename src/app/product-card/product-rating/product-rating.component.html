@@ -1,0 +1,3 @@
+<div className="stars" *ngIf="productRating">
+    <ng-icon *ngFor="let n of ratings; let i=index;" name="ionStar" size="15" [class]="starFilling(i, productRating)"></ng-icon>
+</div>

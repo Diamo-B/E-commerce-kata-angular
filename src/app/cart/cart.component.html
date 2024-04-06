@@ -1,1 +1,9 @@
-<p>cart works!</p>
+<div
+  class="overflow-x-auto h-full flex flex-col justify-center items-center gap-5 md:w-3/4 mx-auto "
+>
+  <div class="overflow-x-auto py-5 w-full">
+    <app-cart-table [Items]="items"></app-cart-table>
+  </div>
+  <div class="border-2 !border-gray-100 w-full"></div>
+  <app-cart-total class="w-full" [Items]="items"></app-cart-total>
+</div>

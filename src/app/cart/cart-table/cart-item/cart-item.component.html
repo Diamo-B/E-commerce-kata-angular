@@ -1,0 +1,85 @@
+<!-- desktop -->
+<div
+  *ngIf="Item"
+  [class]="
+    mergeClasses(
+      'hidden md:flex border-r border-white col-span-2 py-4 px-5 items-center gap-2',
+      !isLast ? 'border-b-2' : ''
+    )
+  "
+>
+  <button
+    class="h-full rounded-full btn btn-error text-white min-w-0 w-fit px-0"
+    (click)="removeCartItem(Item.product.id)"
+  >
+    <ng-icon name="ionTrash" size="20"></ng-icon>
+  </button>
+  <div
+    class="size-24 bg-clip-border bg-contain bg-white rounded-xl bg-no-repeat bg-center"
+    [style.backgroundImage]="'url(' + Item.product.image + ')'"
+  ></div>
+  <p>{{ Item.product.title }}</p>
+</div>
+<div
+  *ngIf="Item"
+  [class]="
+    mergeClasses(
+      'hidden md:flex border-x border-white items-center justify-center',
+      !isLast ? 'border-b-2' : ''
+    )
+  "
+>
+  <p>$ {{ Item.product.price.toFixed(2) }}</p>
+</div>
+<div
+  *ngIf="Item"
+  [class]="
+    mergeClasses(
+      'hidden md:flex h-full border-x border-white flex-col justify-center items-center',
+      !isLast ? 'border-b-2' : ''
+    )
+  "
+>
+  <app-quantity-selector
+    class="py-2 justify-center items-center flex"
+    [Item]="Item"
+  ></app-quantity-selector>
+</div>
+<div
+  *ngIf="Item"
+  [class]="
+    mergeClasses(
+      'hidden md:flex border-x border-white items-center justify-center',
+      !isLast ? 'border-b-2' : ''
+    )
+  "
+>
+  <p>$ {{ (Item.product.price * Item.quantity).toFixed(2) }}</p>
+</div>
+
+<ng-container *ngIf="Item">
+  <div class="flex gap-2 md:hidden items-center">
+    <button
+      class="h-full rounded-full btn btn-error text-white min-w-0 w-fit px-0"
+      (click)="removeCartItem(Item.product.id)"
+    >
+      <ng-icon name="ionTrash" size="20"></ng-icon>
+    </button>
+    <div
+      class="h-16 w-24 bg-contain bg-white rounded-xl bg-no-repeat bg-center"
+      [style.backgroundImage]="'url(' + Item.product.image + ')'"
+    ></div>
+    <h1 class="text-xs">
+      {{ sliceProductTitle(Item.product.title, 20) }}
+    </h1>
+  </div>
+  <div
+    class="grid md:hidden grid-cols-2 justify-content-center place-items-center "
+  >
+      <app-quantity-selector
+        class="py-2 justify-center items-center flex"
+        [Item]="Item"
+      ></app-quantity-selector>
+    <p>$ {{ (Item.product.price * Item.quantity).toFixed(2) }}</p>
+  </div>
+</ng-container>

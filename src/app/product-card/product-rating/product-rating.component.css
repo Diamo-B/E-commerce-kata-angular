@@ -1,0 +1,21 @@
+
+.stars {
+    display: flex;
+  }
+  
+  .star-icon {
+    @apply text-transparent size-4;
+  }
+  
+  .filled {
+    @apply text-orange-500 stroke-white stroke-[10px];
+  }
+  
+  .half-filled {
+    clip-path: inset(0 50% 0 0); /* Clip the filled portion to show only half */
+  }
+  
+  .outlined {
+    @apply stroke-white stroke-[10px]
+  }
+  
